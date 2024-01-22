@@ -25,6 +25,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -60,7 +61,8 @@
               "buildTarget": "spring-oauth2-crud-ui:build:production"
             },
             "development": {
-              "buildTarget": "spring-oauth2-crud-ui:build:development"
+              "buildTarget": "spring-oauth2-crud-ui:build:development",
+              "proxyConfig": "src/proxy.conf.js"
             }
           },
           "defaultConfiguration": "development"
@@ -84,6 +86,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/purple-green.css",
               "src/styles.css"
             ],
             "scripts": []
