@@ -5,7 +5,7 @@
   </ol>
 </nav>
 
-<a [routerLink]="['/user/new']" mat-raised-button color="primary" style="float: right" id="add">Add User</a>
+<a [routerLink]="['/users/new']" mat-raised-button color="primary" style="float: right" id="add">Add User</a>
 
 <h2>{{title}}</h2>
 @if (loading) {
@@ -29,22 +29,14 @@
       <mat-header-cell *matHeaderCellDef> Email </mat-header-cell>
       <mat-cell *matCellDef="let item"> {{ item.email }} </mat-cell>
     </ng-container>
-    <ng-container matColumnDef="password">
-      <mat-header-cell *matHeaderCellDef> Password </mat-header-cell>
-      <mat-cell *matCellDef="let item"> {{ item.password }} </mat-cell>
-    </ng-container>
     <ng-container matColumnDef="actions">
       <mat-header-cell *matHeaderCellDef> Actions </mat-header-cell>
       <mat-cell *matCellDef="let item">
-        <a [routerLink]="['../user', item.id ]" mat-raised-button color="accent">Edit</a>&nbsp;
-        <button (click)="delete(item)" mat-button color="warn"><mat-icon>Delete</mat-icon></button>
+        <a [routerLink]="['../users', item.id ]" mat-raised-button color="accent">Edit</a>&nbsp;
+        <button (click)="delete(item)" mat-button color="warn"><mat-icon>delete</mat-icon></button>
       </mat-cell>
     </ng-container>
     <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
     <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
   </table>
 }
-
-<div class="content" role="main">
-  <router-outlet></router-outlet>
-</div>

@@ -9,7 +9,7 @@ export const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'groups',
+    path: 'users',
     component: UserListComponent
   }
 ];
