@@ -33,7 +33,7 @@ export class AuthService {
   }
 
   login(): void {
-    location.href = `${location.origin}${this.location.prepareExternalUrl('oauth2/authorization/azuread')}`;
+    location.href = `${location.origin}${this.location.prepareExternalUrl('oauth2/code/azuread')}`;
   }
 
   logout(): void {
