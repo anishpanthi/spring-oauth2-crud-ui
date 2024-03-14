@@ -36,6 +36,7 @@ export class AuthService {
     location.href = `${location.origin}${this.location.prepareExternalUrl('oauth2/code/azuread')}`;
   }
 
+  // TODO: Add logout method with a POST request to /api/logout
   logout(): void {
     this.http.post('/api/logout', {}, { withCredentials: true }).subscribe((response: any) => {
       location.href = response.logoutUrl;
