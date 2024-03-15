@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { Location } from '@angular/common';
-import { BehaviorSubject, lastValueFrom, Observable } from 'rxjs';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { map } from 'rxjs/operators';
-import { User } from './model/user';
+import {Injectable} from '@angular/core';
+import {Location} from '@angular/common';
+import {BehaviorSubject, lastValueFrom, Observable} from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {map} from 'rxjs/operators';
+import {User} from './model/user';
 
 const headers = new HttpHeaders().set('Accept', 'application/json');
 
@@ -17,7 +17,7 @@ export class AuthService {
   }
 
   getUser(): Observable<User> {
-    return this.http.get<User>('/api/user', {headers}, )
+    return this.http.get<User>('/api/user', {headers},)
       .pipe(map((response: User) => {
           if (response !== null) {
             this.$authenticationState.next(true);
@@ -33,12 +33,11 @@ export class AuthService {
   }
 
   login(): void {
-    location.href = `${location.origin}${this.location.prepareExternalUrl('oauth2/code/azuread')}`;
+    location.href = `${location.origin}${this.location.prepareExternalUrl('oauth2/authorization/azuread')}`;
   }
 
-  // TODO: Add logout method with a POST request to /api/logout
   logout(): void {
-    this.http.post('/api/logout', {}, { withCredentials: true }).subscribe((response: any) => {
+    this.http.post('/api/logout', {}, {withCredentials: true}).subscribe((response: any) => {
       location.href = response.logoutUrl;
     });
   }

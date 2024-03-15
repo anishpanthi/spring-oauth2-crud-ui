@@ -1,6 +1,6 @@
 @if (user) {
-  <h2>Welcome, {{ user.name }}!</h2>
-  <a mat-button color="primary" href="/users">Manage User</a>
+  <h2>Welcome, {{ user.name }}! - {{ user.preferred_username }}</h2>
+  <a mat-button color="primary" href="/users">Get All Users</a>
   <br/><br/>
   <button mat-raised-button color="primary" (click)="auth.logout()" id="logout">Logout</button>
 } @else {

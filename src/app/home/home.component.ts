@@ -1,8 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { RouterLink } from '@angular/router';
-import { User } from '../model/user';
-import { AuthService } from '../auth.service';
+import {MatButtonModule} from '@angular/material/button';
+import {User} from '../model/user';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-home',
