@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
+import {Component, OnInit} from '@angular/core';
+import {MatButtonModule} from '@angular/material/button';
+import {User} from '../model/user';
+import {AuthService} from '../auth.service';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +10,15 @@ import { MatButtonModule } from '@angular/material/button';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
+  isAuthenticated!: boolean;
+  user!: User;
 
+  constructor(public auth: AuthService) {
+  }
+
+  async ngOnInit() {
+    this.isAuthenticated = await this.auth.isAuthenticated();
+    this.auth.getUser().subscribe(data => this.user = data);
+  }
 }
