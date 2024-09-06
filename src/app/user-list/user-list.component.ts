@@ -27,7 +27,7 @@ export class UserListComponent {
 
   ngOnInit() {
     this.loading = true;
-    this.http.get<User[]>('api/all/users').subscribe((data: User[]) => {
+    this.http.get<User[]>('/tmv/accelerator/api/user/auth/all').subscribe((data: User[]) => {
       this.users = data;
       this.loading = false;
       this.feedback = {};

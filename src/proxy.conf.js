@@ -1,9 +1,11 @@
 const PROXY_CONFIG = [
   {
-    context: ['/api', '/oauth2', '/login'],
-    target: 'http://localhost:8080',
-    secure: true,
-    logLevel: 'debug'
+    context: ["/tmv/accelerator/api"],
+    target: "http://localhost:8080/tmv/accelerator/api",
+    secure: false,
+    logLevel: "debug",
+    changeOrigin: true,
+    pathRewrite: {"^/tmv/accelerator/api": ""}
   }
 ]
 

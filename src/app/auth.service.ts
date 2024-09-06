@@ -17,7 +17,7 @@ export class AuthService {
   }
 
   getUser(): Observable<User> {
-    return this.http.get<User>('/api/user', {headers},)
+    return this.http.get<User>('/tmv/accelerator/api/user/auth/info', {headers},)
       .pipe(map((response: User) => {
           if (response !== null) {
             this.$authenticationState.next(true);
@@ -33,12 +33,15 @@ export class AuthService {
   }
 
   login(): void {
-    location.href = `${location.origin}${this.location.prepareExternalUrl('oauth2/authorization/azuread')}`;
+    location.href = `${location.origin}${this.location.prepareExternalUrl('/tmv/accelerator/api/oauth2/authorization/azure-ad')}`;
   }
 
   logout(): void {
-    this.http.post('/api/logout', {}, {withCredentials: true}).subscribe((response: any) => {
-      location.href = response.logoutUrl;
-    });
+    this.http.post('/tmv/accelerator/api/user/auth/logout',
+      {},
+      {withCredentials: true})
+      .subscribe((response: any) => {
+        location.href = response.logoutUrl;
+      });
   }
 }
